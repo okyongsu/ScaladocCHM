@@ -3,6 +3,7 @@ package kr.co.hkcb.tools.chm
 import java.io._
 import java.nio.charset.CodingErrorAction
 import java.util.regex.Pattern
+import scala.util.Try
 
 object CompileScala {
 
@@ -26,7 +27,7 @@ object CompileScala {
     val language = "0x409 English (United States)"
     val etcSettings = "0x61520,,0x104e,[0,0,800,600],,,,,,,0"
 
-    val hhcTool = System.getenv("ProgramFiles") + "/HTML Help Workshop/hhc.exe"
+    val hhcTool = (Try(System.getenv("ProgramFiles(X86)")) getOrElse System.getenv("ProgramFiles")) + "/HTML Help Workshop/hhc.exe"
 
     /**
      * table of contents
